@@ -6,7 +6,7 @@ RUN VERSION=$(wget -S --spider https://codeberg.org/forgejo/forgejo/releases/lat
     mkdir -p /var/lib/forgejo && \
     wget https://codeberg.org/forgejo/forgejo/releases/download/$VERSION/forgejo-${VERSION#v}-linux-amd64.xz -O - | xzcat > /var/lib/forgejo/forgejo && \
     chmod 755 /var/lib/forgejo/forgejo && \
-    apk add --no-cache git git-lfs && \
+    apk add --no-cache git git-lfs bash && \
     echo "git:x:1000:1000:git:/var/lib/forgejo:" > /passwd && \
     echo "git:x:1000:" > /group
 
